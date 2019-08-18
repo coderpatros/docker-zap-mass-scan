@@ -1,0 +1,1 @@
+Shamelessly copied and tweaked from the [zaproxy/community-scripts repo](https://github.com/zaproxy/community-scripts/tree/master/api/mass-baseline)
