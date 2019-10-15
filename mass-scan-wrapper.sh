@@ -3,8 +3,13 @@
 date=`date +%F`
 mkdir -p "wiki/scan-results/$1"
 results_filename="wiki/scan-results/$1/$date"
+extra_parameters=""
 
-cmd="./zap-full-scan.py -j -l PASS -t https://$1/ -d"
+if [ -f "wiki/contexts/$1.context" ]; then
+  extra_parameters="${extra_parameters} -n wiki/contexts/$1.context"
+fi
+
+cmd="./zap-full-scan.py -j -l PASS -t https://$1/ -d ${extra_parameters}"
 
 echo $cmd
 $cmd > $results_filename
